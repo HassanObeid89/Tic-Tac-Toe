@@ -1,18 +1,24 @@
-import React from 'react'
-import Square from './Square'
+import React from "react";
+import Square from "./Square";
 
 export default function Board() {
   return (
-    <div>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
-      <Square/>
+    <div className="board-container">
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
+      <div className="board-row">
+        <Square />
+        <Square />
+        <Square />
+      </div>
     </div>
-  )
+  );
 }
