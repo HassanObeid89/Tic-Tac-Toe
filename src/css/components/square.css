@@ -8,4 +8,6 @@
     align-items: center;
     font-size: 40px;
     color: white;
+    cursor: pointer;
+    /* border: 1px gray solid; */
 }
