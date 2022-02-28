@@ -1,7 +1,9 @@
-import React from 'react'
+import React from "react";
 
-export default function Square() {
+export default function Square({ handleClick, value }) {
   return (
-    <div className='cell'>X</div>
-  )
+    <button onClick={handleClick} className="cell">
+      {value}
+    </button>
+  );
 }
