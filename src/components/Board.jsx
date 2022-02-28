@@ -3,11 +3,34 @@ import Square from "./Square";
 
 export default function Board() {
   const [isXturn, setIsXturn] = useState(true);
-  const [board, setBoard] = useState(Array(9).fill(''));
-  console.log(board)
+  const [board, setBoard] = useState([]);
+  let winner = calculateWinner()
+  let nextPlayer = isXturn ? "X":"O"
+  function calculateWinner(){
+    let winningCombinations = [
+      [0,1,2],
+      [3,4,5],
+      [6,7,8],
+      [0,3,6],
+      [1,4,7],
+      [2,5,8],
+      [0,4,8],
+      [2,4,6] 
+    ]
+
+    for(let i =0; i < winningCombinations.length; i++){
+      let[a,b,c] = winningCombinations[i]
+
+      if(board[a] && board[a] === board[b] && board[a] === board[c]){
+        return true
+      }
+    }
+    return false
+  }
+
   function handleClick(index){
     let copyBoard = board
-    if (copyBoard[index]){
+    if (copyBoard[index] || calculateWinner()){
       return
     }
     copyBoard[index] = isXturn ? "X":"O"
@@ -15,7 +38,9 @@ export default function Board() {
     setBoard(copyBoard)
   }
   return (
+    
     <div className="board-container">
+      <p>Winner: {winner ? winner  === true && nextPlayer === 'X' ? 'O' : 'X' : 'None'}</p>
       <div className="board-row">
         <Square value={board[0]} handleClick={()=>handleClick(0)} />
         <Square value={board[1]} handleClick={()=>handleClick(1)}/>
