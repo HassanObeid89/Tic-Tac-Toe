@@ -1,0 +1,4 @@
+@import './_base/layout.css';
+@import './_base/typography.css';
+@import './components/board.css';
+@import './components/square.css';
